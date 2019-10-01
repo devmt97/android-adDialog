@@ -3,4 +3,5 @@
 <dimen name="dp150">112.5dp</dimen>
 <dimen name="dp5">3.75dp</dimen>
 <dimen name="dp100">75.0dp</dimen>
+<dimen name="dp500">375.0dp</dimen>
 </resources>

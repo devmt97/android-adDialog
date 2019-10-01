@@ -143,7 +143,7 @@ public class AdManager {
         int widthPixels = displayMetrics.widthPixels;
         int totalPadding = DisplayUtil.dip2px(context, padding * 2);
         int width = widthPixels - totalPadding;
-        final int height = (int) (width / widthPerHeight);
+        final int height = (int) (width / widthPerHeight)+150;
         ViewGroup.LayoutParams params = adRootContent.getLayoutParams();
         params.height = height;
     }
