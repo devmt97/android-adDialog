@@ -21,11 +21,12 @@
         android:layout_height="match_parent"
         android:background="#FFF">
 
-        <com.facebook.drawee.view.SimpleDraweeView
+        <ImageView
             android:id="@+id/simpleDraweeView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_above="@+id/btnInstall" />
+            android:layout_above="@+id/btnInstall"
+            android:scaleType="fitXY" />
 
         <TextView
             android:id="@+id/btnInstall"
@@ -37,11 +38,11 @@
             android:layout_marginBottom="@dimen/dp50"
             android:background="@drawable/bg"
             android:gravity="center"
-            android:textStyle="bold"
             android:text="GET NOW"
             android:textAllCaps="true"
             android:textColor="#FFFFFF"
-            android:textSize="16dp" />
+            android:textSize="16dp"
+            android:textStyle="bold" />
 
     </RelativeLayout>
 

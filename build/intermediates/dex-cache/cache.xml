@@ -2,11 +2,130 @@
 <items version="2" >
 
     <item
+        jar="C:\Users\Admin\.gradle\caches\modules-2\files-2.1\com.facebook.rebound\rebound\0.3.8\c8b90640dddaf1e7ad75d7cb00b09a44b3788f7e\rebound-0.3.8.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="c8b90640dddaf1e7ad75d7cb00b09a44b3788f7e">
+        <dex dex="F:\android-adDialog\app\build\intermediates\pre-dexed\debug\rebound-0.3.8_452e34295851ee576a8d956c534b426fc00d3448.jar" />
+    </item>
+    <item
+        jar="F:\android-adDialog\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="67bd36ee9340ec7c254108936ad16b24bed160cc">
+        <dex dex="F:\android-adDialog\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-23.4.0_14ecdfa9c5ad015f6b0bc8a81772ccd01b1d2b71.jar" />
+    </item>
+    <item
+        jar="F:\android-adDialog\app\build\intermediates\exploded-aar\com.facebook.fresco\imagepipeline-base\0.12.0\jars\classes.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="c9a86e6bc8300fc00c191949ac61a2f7165e35c7">
+        <dex dex="F:\android-adDialog\app\build\intermediates\pre-dexed\debug\com.facebook.fresco-imagepipeline-base-0.12.0_3e30bd42d1ad2cce63fe8dce414ca35925ddd0b2.jar" />
+    </item>
+    <item
+        jar="F:\android-adDialog\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
+        <dex dex="F:\android-adDialog\app\build\intermediates\pre-dexed\debug\com.android.support-animated-vector-drawable-23.4.0_ee2ac70c1857529a7d7c4de62aae77bf30ef2389.jar" />
+    </item>
+    <item
         jar="F:\android-adDialog\app\build\intermediates\exploded-aar\android-adDialog\adlibrary\unspecified\jars\classes.jar"
         jumboMode="false"
         revision="24.0.0"
-        sha1="fcd374c37c15710047828f6100f2da63e69c41f8">
+        sha1="c1bfe17da038b3f26189b40df131c0db60ff2b50">
         <dex dex="F:\android-adDialog\app\build\intermediates\pre-dexed\debug\android-adDialog-adlibrary-unspecified_ae9d06449a874d56ca938bf88fd04f114809bf2d.jar" />
+    </item>
+    <item
+        jar="C:\Users\Admin\.gradle\caches\modules-2\files-2.1\com.nineoldandroids\library\2.4.0\e9b63380f3a242dbdbf103a2355ad7e43bad17cb\library-2.4.0.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
+        <dex dex="F:\android-adDialog\app\build\intermediates\pre-dexed\debug\library-2.4.0_8145473287de8c2ff70de33d83ab99a0a921997e.jar" />
+    </item>
+    <item
+        jar="C:\Users\Admin\.gradle\caches\modules-2\files-2.1\com.squareup.picasso\picasso\2.5.2\7446d06ec8d4f7ffcc53f1da37c95f200dcb9387\picasso-2.5.2.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
+        <dex dex="F:\android-adDialog\app\build\intermediates\pre-dexed\debug\picasso-2.5.2_22368cdf4e005ae56673dc222b14a85e132ad1b9.jar" />
+    </item>
+    <item
+        jar="F:\android-adDialog\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="548f06de403a9409f00554b3ee12a9fdea0e236c">
+        <dex dex="F:\android-adDialog\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-23.4.0_99c893b50096a4cac6ac7353f4990dcc20ff42cf.jar" />
+    </item>
+    <item
+        jar="F:\android-adDialog\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\jars\libs\internal_impl-23.4.0.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="ea3c07504d2c8f4b13aa17c45c1b68ed9c1c3674">
+        <dex dex="F:\android-adDialog\app\build\intermediates\pre-dexed\debug\internal_impl-23.4.0_35eb00489b024e503b993db7f572733d617d3fcc.jar" />
+    </item>
+    <item
+        jar="C:\Users\Admin\.gradle\caches\modules-2\files-2.1\com.android.support\support-annotations\23.4.0\ffbe55fdb2bb456b1485831706a9eac3300bb6b8\support-annotations-23.4.0.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="ffbe55fdb2bb456b1485831706a9eac3300bb6b8">
+        <dex dex="F:\android-adDialog\app\build\intermediates\pre-dexed\debug\support-annotations-23.4.0_6a945e59b09bd1e1777ca7bd27f0d223b418417b.jar" />
+    </item>
+    <item
+        jar="F:\android-adDialog\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="c2c594cace5d83a3227b2b6e658ecbfd586d3ed9">
+        <dex dex="F:\android-adDialog\app\build\intermediates\pre-dexed\debug\com.android.support-support-vector-drawable-23.4.0_19c96582e783b3b7fa4a97bd27558fb4cf237425.jar" />
+    </item>
+    <item
+        jar="C:\Users\Admin\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-tasks\1.4.0\d85884acf6810a3bbbecb587f239005cbc846dc4\bolts-tasks-1.4.0.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
+        <dex dex="F:\android-adDialog\app\build\intermediates\pre-dexed\debug\bolts-tasks-1.4.0_a729045a5e53740a2e648c205a9a256c35191b03.jar" />
+    </item>
+    <item
+        jar="F:\android-adDialog\app\build\intermediates\exploded-aar\com.facebook.fresco\imagepipeline\0.12.0\jars\classes.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="145da27a459a63ea0c4e318930365cf0a8b8e891">
+        <dex dex="F:\android-adDialog\app\build\intermediates\pre-dexed\debug\com.facebook.fresco-imagepipeline-0.12.0_4d29503c98e61ea2dd2c8150878591be7bae4dcd.jar" />
+    </item>
+    <item
+        jar="F:\android-adDialog\app\build\intermediates\exploded-aar\com.facebook.fresco\drawee\0.12.0\jars\classes.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="1e346707e4770db216049a532ab3eb5e317cf82a">
+        <dex dex="F:\android-adDialog\app\build\intermediates\pre-dexed\debug\com.facebook.fresco-drawee-0.12.0_b22dd104a9b35d7bf5d0f918b28dda85bb4412bd.jar" />
+    </item>
+    <item
+        jar="F:\android-adDialog\app\build\intermediates\exploded-aar\com.facebook.fresco\fresco\0.12.0\jars\classes.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="a540784239c611ea490593e2053a5e2890675c68">
+        <dex dex="F:\android-adDialog\app\build\intermediates\pre-dexed\debug\com.facebook.fresco-fresco-0.12.0_7b7f5551ca5c6e3f718307579062ffcc3ff3fc75.jar" />
+    </item>
+    <item
+        jar="F:\android-adDialog\app\build\intermediates\exploded-aar\com.flyco.pageindicator\FlycoPageIndicator_Lib\1.0.0\jars\classes.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="0a366d1aafcb2b2753b36cd997db81aaf86c7acf">
+        <dex dex="F:\android-adDialog\app\build\intermediates\pre-dexed\debug\com.flyco.pageindicator-FlycoPageIndicator_Lib-1.0.0_6eee17508e2a0ec42f2a687e6f09014794caa799.jar" />
+    </item>
+    <item
+        jar="F:\android-adDialog\app\build\intermediates\exploded-aar\com.facebook.fresco\fbcore\0.12.0\jars\classes.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="40e5cb8708fc25fe57cb403cc82e9ef98376b648">
+        <dex dex="F:\android-adDialog\app\build\intermediates\pre-dexed\debug\com.facebook.fresco-fbcore-0.12.0_26d8d0de237c95ee733378c70b71cb2379df5dda.jar" />
+    </item>
+    <item
+        jar="F:\android-adDialog\app\build\intermediates\exploded-aar\com.malinskiy\materialicons\1.0.2\jars\classes.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="ef367919068cab239d921b1c747258439b7a8fe4">
+        <dex dex="F:\android-adDialog\app\build\intermediates\pre-dexed\debug\com.malinskiy-materialicons-1.0.2_aeca3a9e37d3aede6e3805a8f273b2bbba6d93d4.jar" />
     </item>
 
 </items>

@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -23,6 +24,7 @@ import com.facebook.drawee.interfaces.DraweeController;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.facebook.imagepipeline.image.ImageInfo;
 import com.flyco.pageindicator.indicator.FlycoPageIndicaor;
+import com.squareup.picasso.Picasso;
 import com.uuch.adlibrary.bean.AdInfo;
 import com.uuch.adlibrary.utils.DisplayUtil;
 
@@ -143,7 +145,7 @@ public class AdManager {
         int widthPixels = displayMetrics.widthPixels;
         int totalPadding = DisplayUtil.dip2px(context, padding * 2);
         int width = widthPixels - totalPadding;
-        final int height = (int) (width / widthPerHeight)+150;
+        final int height = (int) (width / widthPerHeight) + 150;
         ViewGroup.LayoutParams params = adRootContent.getLayoutParams();
         params.height = height;
     }
@@ -183,7 +185,7 @@ public class AdManager {
             View rootView = context.getLayoutInflater().inflate(R.layout.viewpager_item, null);
             final ViewGroup errorView = (ViewGroup) rootView.findViewById(R.id.error_view);
             final ViewGroup loadingView = (ViewGroup) rootView.findViewById(R.id.loading_view);
-            final SimpleDraweeView simpleDraweeView = (SimpleDraweeView) rootView.findViewById(R.id.simpleDraweeView);
+            final ImageView simpleDraweeView = (ImageView) rootView.findViewById(R.id.simpleDraweeView);
             ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
             container.addView(rootView, params);
             simpleDraweeView.setTag(advInfo);
@@ -227,12 +229,12 @@ public class AdManager {
             };
 
             Uri uri = Uri.parse(advInfo.getActivityImg());
-            DraweeController controller = Fresco.newDraweeControllerBuilder()
-                    .setControllerListener(controllerListener)
-                    .setUri(uri)
-                    .build();
-            simpleDraweeView.setController(controller);
-
+//            DraweeController controller = Fresco.newDraweeControllerBuilder()
+//                    .setControllerListener(controllerListener)
+//                    .setUri(uri)
+//                    .build();
+//            simpleDraweeView.setController(controller);
+            Picasso.with(context).load(uri).fit().into(simpleDraweeView);
 
             return rootView;
         }
