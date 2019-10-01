@@ -33,13 +33,12 @@
             android:id="@+id/btnInstall"
             android:layout_width="@dimen/dp100"
             android:layout_height="@dimen/dp50"
-            android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:background="@drawable/bg_install"
+            android:background="@drawable/ng"
             android:gravity="center"
-            android:text="Install"
-            android:textColor="#2196F3"
+            android:text="Get now"
+            android:textColor="#FFFFFF"
             android:textSize="16dp" />
 
     </RelativeLayout>
