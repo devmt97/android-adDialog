@@ -6,10 +6,7 @@ package com.uuch.adlibrary;
  */
 public class AdConstant {
 
-    // ####################### 弹出动画效果 ###########################
-    /**
-     * 广告活动弹窗动画-从上至下
-     */
+
     public static final int ANIM_UP_TO_DOWN = -11;
     /**
      * 广告活动弹窗动画-从下至上

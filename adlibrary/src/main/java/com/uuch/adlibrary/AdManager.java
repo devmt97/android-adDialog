@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.controller.BaseControllerListener;
@@ -89,6 +90,7 @@ public class AdManager {
 
     /**
      * 开始执行显示广告弹窗的操作
+     *
      * @param animType
      */
     public void showAdDialog(final int animType) {
@@ -176,7 +178,7 @@ public class AdManager {
 
         @Override
         public Object instantiateItem(ViewGroup container, int position) {
-            AdInfo advInfo = advInfoListList.get(position);
+            final AdInfo advInfo = advInfoListList.get(position);
 
             View rootView = context.getLayoutInflater().inflate(R.layout.viewpager_item, null);
             final ViewGroup errorView = (ViewGroup) rootView.findViewById(R.id.error_view);
@@ -186,6 +188,22 @@ public class AdManager {
             container.addView(rootView, params);
             simpleDraweeView.setTag(advInfo);
             simpleDraweeView.setOnClickListener(imageOnClickListener);
+
+            final TextView btnCancel = (TextView) rootView.findViewById(R.id.btnCancle);
+            final TextView btnInstall = (TextView) rootView.findViewById(R.id.btnInstall);
+
+            btnCancel.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    dismissAdDialog();
+                }
+            });
+            btnInstall.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    onImageClickListener.onImageClick(view, advInfo);
+                }
+            });
 
 
             ControllerListener controllerListener = new BaseControllerListener<ImageInfo>() {
@@ -228,7 +246,6 @@ public class AdManager {
     }
 
 
-
     // ######################## 点击事件处理操作类 ########################
 
     /**
@@ -244,6 +261,7 @@ public class AdManager {
 
     /**
      * 设置弹窗距离屏幕左右两侧的距离
+     *
      * @param padding
      * @return
      */
@@ -255,6 +273,7 @@ public class AdManager {
 
     /**
      * 设置弹窗宽高比
+     *
      * @param widthPerHeight
      * @return
      */
@@ -266,6 +285,7 @@ public class AdManager {
 
     /**
      * 设置ViewPager Item点击事件
+     *
      * @param onImageClickListener
      * @return
      */
@@ -277,6 +297,7 @@ public class AdManager {
 
     /**
      * 设置背景是否透明
+     *
      * @param animBackViewTransparent
      * @return
      */
@@ -288,6 +309,7 @@ public class AdManager {
 
     /**
      * 设置弹窗关闭按钮是否可见
+     *
      * @param dialogCloseable
      * @return
      */
@@ -299,6 +321,7 @@ public class AdManager {
 
     /**
      * 设置弹窗关闭按钮点击事件
+     *
      * @param onCloseClickListener
      * @return
      */
@@ -310,6 +333,7 @@ public class AdManager {
 
     /**
      * 设置弹窗背景颜色
+     *
      * @param backViewColor
      * @return
      */
@@ -321,6 +345,7 @@ public class AdManager {
 
     /**
      * 设置弹窗弹性动画弹性参数
+     *
      * @param bounciness
      * @return
      */
@@ -332,6 +357,7 @@ public class AdManager {
 
     /**
      * 设置弹窗弹性动画速度参数
+     *
      * @param speed
      * @return
      */
@@ -343,6 +369,7 @@ public class AdManager {
 
     /**
      * 设置ViewPager滑动动画效果
+     *
      * @param pageTransformer
      */
     public AdManager setPageTransformer(ViewPager.PageTransformer pageTransformer) {
@@ -353,6 +380,7 @@ public class AdManager {
 
     /**
      * 设置弹窗背景是否覆盖全屏幕
+     *
      * @param overScreen
      * @return
      */

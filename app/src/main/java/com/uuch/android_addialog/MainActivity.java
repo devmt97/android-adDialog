@@ -1,6 +1,8 @@
 package com.uuch.android_addialog;
 
+import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -53,11 +55,12 @@ public class MainActivity extends AppCompatActivity {
         advList = new ArrayList<>();
         AdInfo adInfo = new AdInfo();
         adInfo.setActivityImg("https://raw.githubusercontent.com/yipianfengye/android-adDialog/master/images/testImage1.png");
+        adInfo.setUrl("https://play.google.com/store/apps/details?id=com.lilithgame.roc.gp");
         advList.add(adInfo);
-
-        adInfo = new AdInfo();
-        adInfo.setActivityImg("https://raw.githubusercontent.com/yipianfengye/android-adDialog/master/images/testImage2.png");
-        advList.add(adInfo);
+//
+//        adInfo = new AdInfo();
+//        adInfo.setActivityImg("https://raw.githubusercontent.com/yipianfengye/android-adDialog/master/images/testImage2.png");
+//        advList.add(adInfo);
     }
 
     /**
@@ -172,7 +175,7 @@ public class MainActivity extends AppCompatActivity {
                 adManager.setOnImageClickListener(new AdManager.OnImageClickListener() {
                     @Override
                     public void onImageClick(View view, AdInfo advInfo) {
-                        Toast.makeText(MainActivity.this, "您点击了ViewPagerItem...", Toast.LENGTH_SHORT).show();
+
                     }
                 });
                 adManager.showAdDialog(Integer.parseInt(result));
@@ -193,9 +196,9 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this, "您点击了ViewPagerItem...", Toast.LENGTH_SHORT).show();
                     }
                 })
-                .setPadding(100)
-                .setWidthPerHeight(0.5f)
-                .showAdDialog(AdConstant.ANIM_UP_TO_DOWN);
+                        .setPadding(100)
+                        .setWidthPerHeight(0.5f)
+                        .showAdDialog(AdConstant.ANIM_UP_TO_DOWN);
             }
         });
 
@@ -213,9 +216,9 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this, "您点击了ViewPagerItem...", Toast.LENGTH_SHORT).show();
                     }
                 })
-                .setBackViewColor(Color.parseColor("#AA333333"))
-                .setDialogCloseable(false)
-                .showAdDialog(AdConstant.ANIM_UP_TO_DOWN);
+                        .setBackViewColor(Color.parseColor("#AA333333"))
+                        .setDialogCloseable(false)
+                        .showAdDialog(AdConstant.ANIM_UP_TO_DOWN);
             }
         });
 
@@ -230,12 +233,16 @@ public class MainActivity extends AppCompatActivity {
                 adManager.setOnImageClickListener(new AdManager.OnImageClickListener() {
                     @Override
                     public void onImageClick(View view, AdInfo advInfo) {
-                        Toast.makeText(MainActivity.this, "您点击了ViewPagerItem...", Toast.LENGTH_SHORT).show();
+                        try {
+                            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(advInfo.getUrl())));
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
                     }
                 })
-                .setBounciness(20)
-                .setSpeed(4)
-                .showAdDialog(AdConstant.ANIM_UP_TO_DOWN);
+                        .setBounciness(20)
+                        .setSpeed(4)
+                        .showAdDialog(AdConstant.ANIM_UP_TO_DOWN);
             }
         });
 
@@ -253,8 +260,8 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this, "您点击了ViewPagerItem...", Toast.LENGTH_SHORT).show();
                     }
                 })
-                .setPageTransformer(new RotateDownPageTransformer())
-                .showAdDialog(AdConstant.ANIM_UP_TO_DOWN);
+                        .setPageTransformer(new RotateDownPageTransformer())
+                        .showAdDialog(AdConstant.ANIM_UP_TO_DOWN);
             }
         });
     }
