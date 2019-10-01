@@ -16,42 +16,32 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <com.facebook.drawee.view.SimpleDraweeView
-        android:id="@+id/simpleDraweeView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="#FFF">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:layout_above="@+id/btnInstall"
+            android:id="@+id/simpleDraweeView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
         <TextView
+            android:layout_margin="@dimen/dp5"
             android:id="@+id/btnInstall"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
+            android:layout_width="@dimen/dp100"
+            android:layout_height="@dimen/dp50"
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
-            android:layout_centerInParent="true"
-            android:layout_margin="16dp"
-            android:background="@drawable/ng"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/bg_install"
             android:gravity="center"
             android:text="Install"
-            android:textColor="#FFFFFF"
+            android:textColor="#2196F3"
             android:textSize="16dp" />
 
-        <TextView
-            android:id="@+id/btnCancle"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentBottom="true"
-            android:layout_centerInParent="true"
-            android:layout_margin="16dp"
-            android:background="@drawable/ng"
-            android:gravity="center"
-            android:text="Cancel"
-            android:textColor="#FFFFFF"
-            android:textSize="16dp" />
     </RelativeLayout>
 
 

@@ -1,0 +1,6 @@
+<resources>
+<dimen name="dp50">75.0dp</dimen>
+<dimen name="dp150">225.0dp</dimen>
+<dimen name="dp5">7.5dp</dimen>
+<dimen name="dp100">150.0dp</dimen>
+</resources>

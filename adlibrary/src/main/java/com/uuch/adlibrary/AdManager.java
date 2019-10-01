@@ -189,15 +189,8 @@ public class AdManager {
             simpleDraweeView.setTag(advInfo);
             simpleDraweeView.setOnClickListener(imageOnClickListener);
 
-            final TextView btnCancel = (TextView) rootView.findViewById(R.id.btnCancle);
             final TextView btnInstall = (TextView) rootView.findViewById(R.id.btnInstall);
 
-            btnCancel.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    dismissAdDialog();
-                }
-            });
             btnInstall.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
