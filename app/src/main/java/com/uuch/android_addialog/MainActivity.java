@@ -113,7 +113,8 @@ public class MainActivity extends AppCompatActivity {
                      * 从上至下弹出广告弹窗
                      */
                     case 2:
-                        adManager.showAdDialog(AdConstant.ANIM_UP_TO_DOWN);
+                        adManager.showAdDialog(AdConstant.ANIM_UP_TO_DOWN, -70);
+
                         break;
                     /**
                      * 从左向右弹窗广告弹窗

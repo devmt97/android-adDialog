@@ -103,7 +103,7 @@ public class AdManager {
         viewPager = (ViewPager) contentView.findViewById(R.id.viewPager);
         mIndicator = (FlycoPageIndicaor) contentView.findViewById(R.id.indicator);
 
-        adAdapter = new AdAdapter();
+        adAdapter = new AdAdapter(R.layout.viewpager_item);
         viewPager.setAdapter(adAdapter);
 
         if (pageTransformer != null) {
@@ -131,6 +131,43 @@ public class AdManager {
         }, 1000);
     }
 
+    public void showAdDialog(final int animType, int moreHeight) {
+
+        contentView = LayoutInflater.from(context).inflate(R.layout.ad_dialog_content_layout, null);
+        adRootContent = (RelativeLayout) contentView.findViewById(R.id.ad_root_content);
+
+        viewPager = (ViewPager) contentView.findViewById(R.id.viewPager);
+        mIndicator = (FlycoPageIndicaor) contentView.findViewById(R.id.indicator);
+
+        adAdapter = new AdAdapter(R.layout.viewpager_item2);
+        viewPager.setAdapter(adAdapter);
+
+        if (pageTransformer != null) {
+            viewPager.setPageTransformer(true, pageTransformer);
+        }
+
+        mIndicator.setViewPager(viewPager);
+        isShowIndicator();
+
+        animDialogUtils = AnimDialogUtils.getInstance(context)
+                .setAnimBackViewTransparent(isAnimBackViewTransparent)
+                .setDialogCloseable(isDialogCloseable)
+                .setDialogBackViewColor(backViewColor)
+                .setOnCloseClickListener(onCloseClickListener)
+                .setOverScreen(isOverScreen)
+                .initView(contentView);
+        setRootContainerHeight(moreHeight);
+
+        // 延迟1s展示，为了避免ImageLoader还为加载完缓存图片时就展示了弹窗的情况
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                animDialogUtils.show(animType, bounciness, speed);
+            }
+        }, 1000);
+    }
+
+
     /**
      * 开始执行销毁弹窗的操作
      */
@@ -150,6 +187,17 @@ public class AdManager {
         params.height = height;
     }
 
+    private void setRootContainerHeight(int h) {
+
+        context.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        int widthPixels = displayMetrics.widthPixels;
+        int totalPadding = DisplayUtil.dip2px(context, padding * 2);
+        int width = widthPixels - totalPadding;
+        final int height = (int) (width / widthPerHeight) + h;
+        ViewGroup.LayoutParams params = adRootContent.getLayoutParams();
+        params.height = height;
+    }
+
     /**
      * 根据页面数量，判断是否显示Indicator
      */
@@ -162,6 +210,11 @@ public class AdManager {
     }
 
     class AdAdapter extends PagerAdapter {
+        private int layoutId;
+
+        public AdAdapter(int viewpager_item2) {
+            this.layoutId = viewpager_item2;
+        }
 
         @Override
         public int getCount() {
@@ -182,58 +235,41 @@ public class AdManager {
         public Object instantiateItem(ViewGroup container, int position) {
             final AdInfo advInfo = advInfoListList.get(position);
 
-            View rootView = context.getLayoutInflater().inflate(R.layout.viewpager_item, null);
-            final ViewGroup errorView = (ViewGroup) rootView.findViewById(R.id.error_view);
-            final ViewGroup loadingView = (ViewGroup) rootView.findViewById(R.id.loading_view);
+            View rootView = context.getLayoutInflater().inflate(layoutId, null);
+
             final ImageView simpleDraweeView = (ImageView) rootView.findViewById(R.id.simpleDraweeView);
             ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
             container.addView(rootView, params);
             simpleDraweeView.setTag(advInfo);
             simpleDraweeView.setOnClickListener(imageOnClickListener);
+            if (layoutId == R.layout.viewpager_item) {
+                final TextView btnInstall = (TextView) rootView.findViewById(R.id.btnInstall);
 
-            final TextView btnInstall = (TextView) rootView.findViewById(R.id.btnInstall);
-
-            btnInstall.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    onImageClickListener.onImageClick(view, advInfo);
-                }
-            });
-
-
-            ControllerListener controllerListener = new BaseControllerListener<ImageInfo>() {
-                @Override
-                public void onFinalImageSet(
-                        String id,
-                        @Nullable ImageInfo imageInfo,
-                        @Nullable Animatable anim) {
-                    if (imageInfo == null) {
-                        return;
+                btnInstall.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        onImageClickListener.onImageClick(view, advInfo);
                     }
-                    errorView.setVisibility(View.GONE);
-                    loadingView.setVisibility(View.GONE);
-                    simpleDraweeView.setVisibility(View.VISIBLE);
-                }
-
-                @Override
-                public void onIntermediateImageSet(String id, @Nullable ImageInfo imageInfo) {
-                    Log.i("##########", "onIntermediateImageSet()");
-                }
-
-                @Override
-                public void onFailure(String id, Throwable throwable) {
-                    errorView.setVisibility(View.VISIBLE);
-                    loadingView.setVisibility(View.GONE);
-                    simpleDraweeView.setVisibility(View.GONE);
-                }
-            };
+                });
+            } else {
+                RelativeLayout btnCancle = (RelativeLayout) rootView.findViewById(R.id.btnCancel);
+                RelativeLayout btnInstall = (RelativeLayout) rootView.findViewById(R.id.btnInstall);
+                btnCancle.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dismissAdDialog();
+                    }
+                });
+                btnInstall.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        onImageClickListener.onImageClick(view, advInfo);
+                    }
+                });
+            }
 
             Uri uri = Uri.parse(advInfo.getActivityImg());
-//            DraweeController controller = Fresco.newDraweeControllerBuilder()
-//                    .setControllerListener(controllerListener)
-//                    .setUri(uri)
-//                    .build();
-//            simpleDraweeView.setController(controller);
+
             Picasso.with(context).load(uri).fit().into(simpleDraweeView);
 
             return rootView;
