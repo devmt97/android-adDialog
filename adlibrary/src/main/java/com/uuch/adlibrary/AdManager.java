@@ -184,7 +184,7 @@ public class AdManager {
         int width = widthPixels - totalPadding;
         final int height = (int) (width / widthPerHeight) + 150;
         ViewGroup.LayoutParams params = adRootContent.getLayoutParams();
-        params.height = height;
+//        params.height = height;
     }
 
     private void setRootContainerHeight(int h) {
@@ -251,6 +251,10 @@ public class AdManager {
                         onImageClickListener.onImageClick(view, advInfo);
                     }
                 });
+                Uri uri = Uri.parse(advInfo.getActivityImg());
+
+                Picasso.with(context).load(uri).fit().into(simpleDraweeView);
+
             } else {
                 RelativeLayout btnCancle = (RelativeLayout) rootView.findViewById(R.id.btnCancel);
                 RelativeLayout btnInstall = (RelativeLayout) rootView.findViewById(R.id.btnInstall);
@@ -268,9 +272,7 @@ public class AdManager {
                 });
             }
 
-            Uri uri = Uri.parse(advInfo.getActivityImg());
 
-            Picasso.with(context).load(uri).fit().into(simpleDraweeView);
 
             return rootView;
         }

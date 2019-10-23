@@ -101,7 +101,9 @@ public class MainActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 AdManager adManager = new AdManager(MainActivity.this, advList);
                 adManager.setOverScreen(true)
+                        .setDialogCloseable(false)
                         .setPageTransformer(new DepthPageTransformer());
+
                 switch (position) {
                     /**
                      * 从下至上弹出广告弹窗
@@ -113,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
                      * 从上至下弹出广告弹窗
                      */
                     case 2:
-                        adManager.showAdDialog(AdConstant.ANIM_UP_TO_DOWN, -70);
+                        adManager.showAdDialog(AdConstant.ANIM_UP_TO_DOWN, -200);
 
                         break;
                     /**
