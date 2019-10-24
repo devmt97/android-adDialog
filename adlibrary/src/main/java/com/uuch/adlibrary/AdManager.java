@@ -251,11 +251,10 @@ public class AdManager {
                         onImageClickListener.onImageClick(view, advInfo);
                     }
                 });
-                Uri uri = Uri.parse(advInfo.getActivityImg());
 
-                Picasso.with(context).load(uri).fit().into(simpleDraweeView);
 
             } else {
+
                 RelativeLayout btnCancle = (RelativeLayout) rootView.findViewById(R.id.btnCancel);
                 RelativeLayout btnInstall = (RelativeLayout) rootView.findViewById(R.id.btnInstall);
                 btnCancle.setOnClickListener(new View.OnClickListener() {
@@ -272,6 +271,9 @@ public class AdManager {
                 });
             }
 
+//            Uri uri = Uri.parse(advInfo.getActivityImg());
+//
+//            Picasso.with(context).load(uri).fit().into(simpleDraweeView);
 
 
             return rootView;
